@@ -28,4 +28,4 @@ jobs:
       - name: Smoke test rota generation
         run: |
           python -m dutyrota -i examples/names.txt -o smoke.html --weeks 4 --seed 1
-          python -c "print(open('smoke.html', encoding='utf-8').read().count('class=\"names\"'))"
+          python -c "text = open('smoke.html', encoding='utf-8').read(); marker = 'class=' + chr(34) + 'names' + chr(34); assert text.count(marker) == 20; print('ok')"
